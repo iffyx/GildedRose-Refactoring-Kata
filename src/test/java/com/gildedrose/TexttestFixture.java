@@ -2,7 +2,6 @@ package com.gildedrose;
 
 import com.gildedrose.item.CustomItem;
 import com.gildedrose.item.CustomItemFactory;
-import com.gildedrose.item.DefaultItem;
 
 public class TexttestFixture {
     public static void main(String[] args) {

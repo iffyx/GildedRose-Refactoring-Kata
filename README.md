@@ -1,5 +1,5 @@
-1. Stworzenie interfejsu CustomItem zawierającego metodę void updateQuality()
-2. Utworzenie klasy DefaultItem oraz zdefiniowanie działania zwykłego przedmiotu:
+1.Stworzenie interfejsu CustomItem zawierającego metodę void updateQuality()
+2.Utworzenie klasy DefaultItem oraz zdefiniowanie działania zwykłego przedmiotu:
 ```
 public class DefaultItem extends Item implements CustomItem {
     private static final int MAX_VALUE = 50;
@@ -36,7 +36,7 @@ public class DefaultItem extends Item implements CustomItem {
     }
 }
 ```
-3. Usunięcie fragmentów
+3.Usunięcie fragmentów
 ```
 if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
     items[i].quality = items[i].quality - 1;
@@ -55,7 +55,7 @@ public void updateQuality(){
 
 }
 ```
-4. Usunięcie fragmentu
+4.Usunięcie fragmentu
 ``` 
 if(items[i].name.equals("Conjured Mana Cake")){
         items[i].quality--;
@@ -69,7 +69,7 @@ public void decreaseQuality(){
     checkQualityRange();
 }
 ```
-5. Usunięcie fragmentu
+5.Usunięcie fragmentu
 ```
 if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
     if (items[i].sellIn < 11) {

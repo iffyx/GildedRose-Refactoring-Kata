@@ -35,4 +35,16 @@ public class DefaultItem extends Item implements CustomItem {
     protected void decreaseQuality(){
         quality--;
     }
+
+    public String getName(){
+        return name;
+    }
+
+    public int getQuality(){
+        return quality;
+    }
+
+    public int getSellIn(){
+        return sellIn;
+    }
 }
