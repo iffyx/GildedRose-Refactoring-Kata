@@ -1,0 +1,11 @@
+language: java
+
+addons:
+  sonarcloud:
+    organization: "iffyx-github"
+    token:
+      secure: "8a6bfa0b57a60c949a153c236992a60933dacdb4" # encrypted value of your token
+
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=iffyx_GildedRose-Refactoring-Kata
