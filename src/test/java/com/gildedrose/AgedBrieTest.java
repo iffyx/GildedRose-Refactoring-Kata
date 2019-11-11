@@ -22,7 +22,7 @@ public class AgedBrieTest {
     }
 
     @Test
-    void createAgedBrieProperly(){
+    void createAgedBrieProperlyTest(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
         app = new GildedRose(items);
 
