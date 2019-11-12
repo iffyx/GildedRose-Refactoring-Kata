@@ -75,6 +75,16 @@ public class DefaultItemTest {
     }
 
     @Test
+    void defaultItemShouldDecreaseQualityTwiceWhenSellInIsBelow0Test(){
+        items = new CustomItem[] { factory.createCustomItem(name, 0, quality) };
+        app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertThat(app.items[0].getQuality()).isEqualTo(quality - 2);
+    }
+
+    @Test
     void defaultItemShouldNotDecreaseQualityBelow0Test(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, 1) };
         app = new GildedRose(items);

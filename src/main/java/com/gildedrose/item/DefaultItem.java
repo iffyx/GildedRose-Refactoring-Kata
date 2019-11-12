@@ -24,7 +24,7 @@ public class DefaultItem extends Item implements CustomItem {
     protected void checkQualityRange(){
         if(quality < MIN_VALUE)
             quality = 0;
-        else if(quality > MAX_VALUE)
+        else if(quality >= MAX_VALUE)
             quality =  50;
     }
 
