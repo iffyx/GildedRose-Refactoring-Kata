@@ -23,7 +23,7 @@ public class BackstagePassTest {
     }
 
     @Test
-    void createAgedBrieProperlyTest(){
+    void createBackstagePassProperlyTest(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
         app = new GildedRose(items);
 
@@ -31,7 +31,7 @@ public class BackstagePassTest {
     }
 
     @Test
-    void agedBrieShouldDecreaseSellInProperlyTest(){
+    void backstagePassShouldDecreaseSellInTest(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
         app = new GildedRose(items);
 
@@ -41,7 +41,7 @@ public class BackstagePassTest {
     }
 
     @Test
-    void agedBrieShouldDecreaseSellInAfterFewDaysProperlyTest(){
+    void backstagePassShouldDecreaseSellInAfterFewDaysTest(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
         app = new GildedRose(items);
         int updateCount = sellIn + 2;
@@ -53,7 +53,7 @@ public class BackstagePassTest {
     }
 
     @Test
-    void agedBrieShouldDecreaseSellInUnderZeroProperlyTest(){
+    void backstagePassShouldDecreaseSellInUnderZeroTest(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
         app = new GildedRose(items);
         int updateCount = 3;
@@ -65,7 +65,7 @@ public class BackstagePassTest {
     }
 
     @Test
-    void agedBrieShouldIncreaseQualityProperlyTest(){
+    void backstagePassShouldIncreaseQualityTest(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
         app = new GildedRose(items);
 
@@ -75,7 +75,7 @@ public class BackstagePassTest {
     }
 
     @Test
-    void agedBrieShouldIncreaseQualityTwiceWhenSellInIsBelow10ProperlyTest(){
+    void backstagePassShouldIncreaseQualityTwiceWhenSellInIsBelow10Test(){
         items = new CustomItem[] { factory.createCustomItem(name, 8, quality) };
         app = new GildedRose(items);
 
@@ -85,7 +85,7 @@ public class BackstagePassTest {
     }
 
     @Test
-    void agedBrieShouldIncreaseQualityThriceWhenSellInIsBelow5ProperlyTest(){
+    void backstagePassShouldIncreaseQualityThriceWhenSellInIsBelow5Test(){
         items = new CustomItem[] { factory.createCustomItem(name, 4, quality) };
         app = new GildedRose(items);
 
@@ -95,7 +95,7 @@ public class BackstagePassTest {
     }
 
     @Test
-    void agedBrieShouldNotIncreaseQualityAbove50Test(){
+    void backstagePassShouldNotIncreaseQualityAbove50Test(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, 49) };
         app = new GildedRose(items);
         int updateCount = 3;
@@ -107,7 +107,7 @@ public class BackstagePassTest {
     }
 
     @Test
-    void agedBrieShouldDecreaseTo0WhenSellInIs0ProperlyTest(){
+    void backstagePassShouldDecreaseTo0WhenSellInIs0Test(){
         items = new CustomItem[] { factory.createCustomItem(name, 1, quality) };
         app = new GildedRose(items);
 

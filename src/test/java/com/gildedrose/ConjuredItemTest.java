@@ -23,7 +23,7 @@ public class ConjuredItemTest {
     }
 
     @Test
-    void createAgedBrieProperlyTest(){
+    void createConjuredItemProperlyTest(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
         app = new GildedRose(items);
 
@@ -31,7 +31,7 @@ public class ConjuredItemTest {
     }
 
     @Test
-    void agedBrieShouldDecreaseSellInProperlyTest(){
+    void conjuredItemShouldDecreaseSellInTest(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
         app = new GildedRose(items);
 
@@ -41,7 +41,7 @@ public class ConjuredItemTest {
     }
 
     @Test
-    void agedBrieShouldDecreaseSellInAfterFewDaysProperlyTest(){
+    void conjuredItemShouldDecreaseSellInAfterFewDaysTest(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
         app = new GildedRose(items);
         int updateCount = sellIn + 2;
@@ -53,7 +53,7 @@ public class ConjuredItemTest {
     }
 
     @Test
-    void agedBrieShouldDecreaseSellInUnderZeroProperlyTest(){
+    void conjuredItemShouldDecreaseSellInUnderZeroTest(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
         app = new GildedRose(items);
         int updateCount = 3;
@@ -65,7 +65,7 @@ public class ConjuredItemTest {
     }
 
     @Test
-    void agedBrieShouldDecreaseQualityProperlyTest(){
+    void conjuredItemShouldDecreaseQualityTest(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
         app = new GildedRose(items);
 
@@ -75,7 +75,7 @@ public class ConjuredItemTest {
     }
 
     @Test
-    void agedBrieShouldIncreaseQualityAfterFewDaysProperlyTest(){
+    void conjuredItemShouldIncreaseQualityAfterFewDaysTest(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
         app = new GildedRose(items);
         int updateCount = 3;
@@ -87,7 +87,7 @@ public class ConjuredItemTest {
     }
 
     @Test
-    void agedBrieShouldNotDecreaseQualityBelow0Test(){
+    void conjuredItemShouldNotDecreaseQualityBelow0Test(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, 1) };
         app = new GildedRose(items);
         int updateCount = 3;

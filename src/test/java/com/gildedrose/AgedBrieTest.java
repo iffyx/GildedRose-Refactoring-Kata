@@ -4,7 +4,7 @@ import com.gildedrose.item.CustomItem;
 import com.gildedrose.item.CustomItemFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class AgedBrieTest {
     private CustomItemFactory factory;
@@ -30,7 +30,7 @@ public class AgedBrieTest {
     }
 
     @Test
-    void agedBrieShouldDecreaseSellInProperlyTest(){
+    void agedBrieShouldDecreaseSellInTest(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
         app = new GildedRose(items);
 
@@ -40,7 +40,7 @@ public class AgedBrieTest {
     }
 
     @Test
-    void agedBrieShouldDecreaseSellInAfterFewDaysProperlyTest(){
+    void agedBrieShouldDecreaseSellInAfterFewDaysTest(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
         app = new GildedRose(items);
         int updateCount = sellIn + 2;
@@ -52,7 +52,7 @@ public class AgedBrieTest {
     }
 
     @Test
-    void agedBrieShouldDecreaseSellInUnderZeroProperlyTest(){
+    void agedBrieShouldDecreaseSellInBelowZeroTest(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
         app = new GildedRose(items);
         int updateCount = 3;
@@ -64,7 +64,7 @@ public class AgedBrieTest {
     }
 
     @Test
-    void agedBrieShouldIncreaseQualityProperlyTest(){
+    void agedBrieShouldIncreaseQualityTest(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
         app = new GildedRose(items);
 
@@ -74,7 +74,7 @@ public class AgedBrieTest {
     }
 
     @Test
-    void agedBrieShouldIncreaseQualityAfterFewDaysProperlyTest(){
+    void agedBrieShouldIncreaseQualityAfterFewDaysTest(){
         items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
         app = new GildedRose(items);
         int updateCount = 3;
