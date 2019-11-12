@@ -6,7 +6,7 @@ public class AgedBrie extends DefaultItem {
     }
 
     @Override
-    public void decreaseQuality(){
+    public void changeQuality(){
         quality++;
         checkQualityRange();
     }

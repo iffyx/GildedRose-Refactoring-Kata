@@ -6,7 +6,7 @@ public class ConjuredItem extends DefaultItem {
     }
 
     @Override
-    public void decreaseQuality(){
+    public void changeQuality(){
         quality -= 2;
         checkQualityRange();
     }

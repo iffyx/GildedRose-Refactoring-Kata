@@ -14,9 +14,9 @@ public class DefaultItem extends Item implements CustomItem {
     public void updateQuality() {
         decreaseSellIn();
         if(quality < MAX_VALUE && quality >= MIN_VALUE)
-            decreaseQuality();
+            changeQuality();
         if(sellIn < 0)
-            decreaseQuality();
+            changeQuality();
 
         checkQualityRange();
     }
@@ -32,7 +32,7 @@ public class DefaultItem extends Item implements CustomItem {
         sellIn--;
     }
 
-    protected void decreaseQuality(){
+    protected void changeQuality(){
         quality--;
     }
 

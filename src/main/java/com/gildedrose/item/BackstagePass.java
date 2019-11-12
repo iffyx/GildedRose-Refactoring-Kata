@@ -6,7 +6,7 @@ public class BackstagePass extends DefaultItem{
     }
 
     @Override
-    public void decreaseQuality(){
+    public void changeQuality(){
         if(sellIn <= 0)
             quality = 0;
         else if(sellIn <= 5)
