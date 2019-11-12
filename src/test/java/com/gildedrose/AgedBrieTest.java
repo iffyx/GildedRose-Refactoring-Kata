@@ -10,7 +10,7 @@ public class AgedBrieTest {
     private CustomItemFactory factory;
     private GildedRose app;
     private CustomItem[] items;
-    private String name = "Aged brie";
+    private String name = "Aged Brie";
     private int sellIn;
     private int quality;
 
@@ -27,5 +27,73 @@ public class AgedBrieTest {
         app = new GildedRose(items);
 
         assertThat(app.items[0].getName()).isEqualTo(name);
+    }
+
+    @Test
+    void agedBrieShouldDecreaseSellInProperlyTest(){
+        items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
+        app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertThat(app.items[0].getSellIn()).isEqualTo(sellIn - 1);
+    }
+
+    @Test
+    void agedBrieShouldDecreaseSellInAfterFewDaysProperlyTest(){
+        items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
+        app = new GildedRose(items);
+        int updateCount = sellIn + 2;
+
+        for(int i = 0; i < updateCount; i++)
+            app.updateQuality();
+
+        assertThat(app.items[0].getSellIn()).isEqualTo(sellIn - updateCount);
+    }
+
+    @Test
+    void agedBrieShouldDecreaseSellInUnderZeroProperlyTest(){
+        items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
+        app = new GildedRose(items);
+        int updateCount = 3;
+
+        for(int i = 0; i < updateCount; i++)
+            app.updateQuality();
+
+        assertThat(app.items[0].getSellIn()).isEqualTo(sellIn - updateCount);
+    }
+
+    @Test
+    void agedBrieShouldIncreaseQualityProperlyTest(){
+        items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
+        app = new GildedRose(items);
+
+        app.updateQuality();
+
+        assertThat(app.items[0].getQuality()).isEqualTo(quality + 1);
+    }
+
+    @Test
+    void agedBrieShouldIncreaseQualityAfterFewDaysProperlyTest(){
+        items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
+        app = new GildedRose(items);
+        int updateCount = 3;
+
+        for(int i = 0; i < updateCount; i++)
+            app.updateQuality();
+
+        assertThat(app.items[0].getQuality()).isEqualTo(quality + updateCount);
+    }
+
+    @Test
+    void agedBrieShouldNotIncreaseQualityAbove50Test(){
+        items = new CustomItem[] { factory.createCustomItem(name, sellIn, 49) };
+        app = new GildedRose(items);
+        int updateCount = 3;
+
+        for(int i = 0; i < updateCount; i++)
+            app.updateQuality();
+
+        assertThat(app.items[0].getQuality()).isEqualTo(50);
     }
 }
