@@ -1,7 +1,7 @@
 package com.gildedrose.item;
 
-public class CustomItemFactory {
-    public CustomItem createCustomItem(String type, int sellIn, int quality){
+public class ItemFactory {
+    public DefaultItem createItem(String type, int sellIn, int quality){
         switch(type){
             case "Sulfuras, Hand of Ragnaros":
                 return new Sulfuras(type, sellIn, quality);

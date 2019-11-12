@@ -1,100 +1,96 @@
 package com.gildedrose;
 
-import com.gildedrose.item.CustomItem;
-import com.gildedrose.item.CustomItemFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ConjuredItemTest {
-    private CustomItemFactory factory;
     private GildedRose app;
-    private CustomItem[] items;
+    private Item[] items;
     private String name = "Conjured Mana Cake";
     private int sellIn;
     private int quality;
 
     @BeforeEach
     void setUp(){
-        sellIn = 4;
+        sellIn = 8;
         quality = 6;
-        factory = new CustomItemFactory();
     }
 
     @Test
     void createConjuredItemProperlyTest(){
-        items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
+        items = new Item[] { new Item(name, sellIn, quality) };
         app = new GildedRose(items);
 
-        assertThat(app.items[0].getName()).isEqualTo(name);
+        assertThat(app.items[0].name).isEqualTo(name);
     }
 
     @Test
     void conjuredItemShouldDecreaseSellInTest(){
-        items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
+        items = new Item[] { new Item(name, sellIn, quality) };
         app = new GildedRose(items);
 
         app.updateQuality();
 
-        assertThat(app.items[0].getSellIn()).isEqualTo(sellIn - 1);
+        assertThat(app.items[0].sellIn).isEqualTo(sellIn - 1);
     }
 
     @Test
     void conjuredItemShouldDecreaseSellInAfterFewDaysTest(){
-        items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
+        items = new Item[] { new Item(name, sellIn, quality) };
         app = new GildedRose(items);
         int updateCount = sellIn + 2;
 
         for(int i = 0; i < updateCount; i++)
             app.updateQuality();
 
-        assertThat(app.items[0].getSellIn()).isEqualTo(sellIn - updateCount);
+        assertThat(app.items[0].sellIn).isEqualTo(sellIn - updateCount);
     }
 
     @Test
     void conjuredItemShouldDecreaseSellInUnderZeroTest(){
-        items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
+        items = new Item[] { new Item(name, sellIn, quality) };
         app = new GildedRose(items);
         int updateCount = 3;
 
         for(int i = 0; i < updateCount; i++)
             app.updateQuality();
 
-        assertThat(app.items[0].getSellIn()).isEqualTo(sellIn - updateCount);
+        assertThat(app.items[0].sellIn).isEqualTo(sellIn - updateCount);
     }
 
     @Test
     void conjuredItemShouldDecreaseQualityTest(){
-        items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
+        items = new Item[] { new Item(name, sellIn, quality) };
         app = new GildedRose(items);
 
         app.updateQuality();
 
-        assertThat(app.items[0].getQuality()).isEqualTo(quality - 2);
+        assertThat(app.items[0].quality).isEqualTo(quality - 2);
     }
 
     @Test
     void conjuredItemShouldIncreaseQualityAfterFewDaysTest(){
-        items = new CustomItem[] { factory.createCustomItem(name, sellIn, quality) };
+        items = new Item[] { new Item(name, sellIn, quality) };
         app = new GildedRose(items);
         int updateCount = 3;
 
         for(int i = 0; i < updateCount; i++)
             app.updateQuality();
 
-        assertThat(app.items[0].getQuality()).isEqualTo(quality - (2 *updateCount));
+        assertThat(app.items[0].quality).isEqualTo(quality - (2 *updateCount));
     }
 
     @Test
     void conjuredItemShouldNotDecreaseQualityBelow0Test(){
-        items = new CustomItem[] { factory.createCustomItem(name, sellIn, 1) };
+        items = new Item[] { new Item(name, sellIn, 0) };
         app = new GildedRose(items);
         int updateCount = 3;
 
         for(int i = 0; i < updateCount; i++)
             app.updateQuality();
 
-        assertThat(app.items[0].getQuality()).isEqualTo(0);
+        assertThat(app.items[0].quality).isEqualTo(0);
     }
 }

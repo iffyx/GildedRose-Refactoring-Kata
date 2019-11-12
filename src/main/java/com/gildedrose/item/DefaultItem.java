@@ -2,7 +2,7 @@ package com.gildedrose.item;
 
 import com.gildedrose.Item;
 
-public class DefaultItem extends Item implements CustomItem {
+public class DefaultItem extends Item{
     private static final int MAX_VALUE = 50;
     private static final int MIN_VALUE = 0;
 
@@ -10,7 +10,6 @@ public class DefaultItem extends Item implements CustomItem {
         super(name, sellIn, quality);
     }
 
-    @Override
     public void updateQuality() {
         decreaseSellIn();
         if(quality < MAX_VALUE && quality >= MIN_VALUE)
@@ -34,17 +33,5 @@ public class DefaultItem extends Item implements CustomItem {
 
     protected void changeQuality(){
         quality--;
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    public int getQuality(){
-        return quality;
-    }
-
-    public int getSellIn(){
-        return sellIn;
     }
 }
