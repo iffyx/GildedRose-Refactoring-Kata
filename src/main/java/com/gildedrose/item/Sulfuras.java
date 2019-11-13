@@ -7,6 +7,6 @@ public class Sulfuras extends DefaultItem {
 
     @Override
     public void updateQuality(){
-        //nic nie zmieniamy
+        //nothing changes
     }
 }
